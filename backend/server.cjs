@@ -1,12 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const db = require('./config/db');
+const db = require('./config/db.cjs');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
 app.get("/api/users", (req, res) => {
   db.all("SELECT * FROM users", (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
