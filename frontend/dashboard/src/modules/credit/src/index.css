@@ -1,0 +1,126 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 199 85% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.8rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Custom component classes */
+  .credit-card {
+    @apply bg-white rounded-xl shadow-md transition-all duration-300 hover:shadow-lg border border-gray-100;
+  }
+
+  .credit-btn {
+    @apply px-5 py-3 rounded-lg font-medium transition-all duration-200 transform hover:translate-y-[-2px];
+  }
+
+  .credit-btn-primary {
+    @apply bg-credit-blue text-white hover:bg-opacity-90;
+  }
+  
+  .credit-btn-secondary {
+    @apply bg-white text-credit-blue border border-credit-blue hover:bg-credit-light-blue;
+  }
+
+  /* Progress bar custom styles */
+  .credit-progress-track {
+    @apply h-2 rounded-full bg-gray-200;
+  }
+
+  .credit-progress-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+  }
+
+  /* Tooltip custom styles */
+  .credit-tooltip {
+    @apply relative inline-block cursor-pointer;
+  }
+
+  .credit-tooltip-text {
+    @apply hidden absolute z-10 w-64 p-3 text-sm bg-white shadow-lg rounded-lg border border-gray-100 text-left;
+  }
+
+  .credit-tooltip:hover .credit-tooltip-text {
+    @apply block;
+  }
+
+  /* Glass effect */
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/80 border border-white/20;
+  }
+
+  /* Neumorphism effect */
+  .neumorphic {
+    @apply bg-gray-100 shadow-[5px_5px_10px_#d1d1d1,-5px_-5px_10px_#ffffff] border-none;
+  }
+
+  .neumorphic-inset {
+    @apply bg-gray-100 shadow-[inset_5px_5px_10px_#d1d1d1,inset_-5px_-5px_10px_#ffffff] border-none;
+  }
+
+  /* Animation classes */
+  .animate-on-scroll {
+    @apply opacity-0;
+  }
+
+  .animate-on-scroll.animated {
+    @apply opacity-100 transition-opacity duration-500;
+  }
+  
+  /* 3D button effect */
+  .btn-3d {
+    @apply relative bg-credit-blue text-white font-medium py-2 px-4 rounded-lg shadow-[0_5px_0_#1e95c9] active:shadow-none active:translate-y-[5px] transition-all duration-150;
+  }
+}
+
