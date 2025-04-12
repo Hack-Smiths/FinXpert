@@ -1,13 +1,14 @@
-const mongoose = require("mongoose");
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('./database.db');
 
-const connectDB= async () => {
-    try{
-        const conn = await mongoose.connect(process.env.MONGO_URI);
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
-    } catch (err) {
-    console.error(err.message);
-    process.exit(1);
-    }
-};
+// Create user table if not exists
+db.serialize(() => {
+  db.run(`CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT,
+    password TEXT
+  )`);
+});
 
-module.exports = connectDB;
+module.exports = db;
